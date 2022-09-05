@@ -13,7 +13,7 @@ string[] GetArray(int n)
 
     for (int i = 0; i < n; i++)
     {
-        Console.WriteLine($"Введите {i+1} элемент массива:");
+        Console.WriteLine($"Введите {i + 1} элемент массива:");
         result[i] = Console.ReadLine();
     }
     return result;
@@ -37,7 +37,26 @@ Console.WriteLine();
 int j = 0;
 for (int i = 0; i < array.Length; i++)
 {
-   if (array[i].Length == 3) j = j + 1;
+    if (array[i].Length <= 3) j = j + 1;
 }
 
-Console.WriteLine(j);
+void GetNewArray(int l, string[] inArray1)
+{
+    string[] new_result = new string[l];
+
+    for (int i = 0; i < new_result.Length; i++)
+    {
+        for (int k = 0; k < inArray1.Length; k++)
+        {
+            if (inArray1[k].Length <= 3)
+            {
+                new_result[i] = inArray1[k];
+                inArray1[k] = "1111";
+                break;
+            }
+        }
+    }
+    Console.WriteLine("Ваш новый массив : ");
+    PrintArray(new_result);
+}
+GetNewArray(j, array);
